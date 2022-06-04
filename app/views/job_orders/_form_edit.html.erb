@@ -1,0 +1,60 @@
+<%= form_with(model: job_order) do |form| %>
+<% if job_order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(job_order.errors.count, "error") %> prohibited this book from being saved:</h2>
+
+      <ul>
+        <% job_order.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<table id="joborders_table">
+    <thread>
+        <tr>
+            <th>Job Order Number</th>
+            <th>Service</th>
+            <th>Department</th>
+            <th>Description</th>
+            <th>Created At</th>
+            <th>Classification</th>
+            <th>Engineering Unit</th>
+            <th>Status</th>
+            <th>Remarks</th>
+            <th>Remarks As Of</th>
+        </tr>
+    </thread>
+    <tbody>
+            <tr>
+                <td><%= job_order.job_order_number %></td>
+                <td><%= job_order.service%></td>
+                <td><%= job_order.department%></td>
+                <td><%= job_order.description%></td>
+                <td><%= job_order.created_at%></td>
+                <td><div class ="field">
+                    <%= form.select(:classification, options_for_select([["MAJOR"],["MINOR"],["IMMEDIATE"]])) %>
+                    </div>
+                </td>
+                <td><div class ="field">
+                    <%= form.select(:engineering_unit, options_for_select([["Contractor"],["Renovation"],["Aircon Tech"],["Electrician"],["Plumber"], ["Mason"], ["Carpenter"],["Welder"],["Painter"]])) %>
+                    </div>
+                </td>
+                <td><div class ="field">
+                    <%= form.select(:status, options_for_select([["IN QUEUE"],["ONGOING"],["PENDING"],["ON HOLD"],["DONE"],["CANCELLED"]])) %>
+                    </div>
+                    </td>
+                <td><div class ="field">
+                    <%= form.text_field :remarks %>
+                    </div>
+                </td>
+                <td><%= job_order.remarks_as_of%></td>
+            </tr>
+    </tbody>
+</table>
+
+    <div class="actions">
+    <%= form.submit %>
+    </div>
+<% end %>
+    <p>Today is <%=@date_today %></p>

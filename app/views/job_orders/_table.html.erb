@@ -1,0 +1,38 @@
+<div class="container_table">
+
+<table id="joborders_table">
+
+<thread>
+<tr>
+<th>Job Order Number</th>
+<th>Service</th>
+<th>Department</th>
+<th id>Description</th>
+            <th>Created At</th>
+            <th>Classification</th>
+            <th>Engineering Unit</th>
+            <th>Status</th>
+            <th>Remarks</th>
+            <th>Remarks As Of</th>
+            <th>Actions</th>
+            </tr>
+            </thread>
+            <tbody>
+            <% @job_orders.each do |jo| %>
+                <tr>
+                <td id="jo"><%= link_to jo.job_order_number, job_order_path(jo.job_order_number) %></td>
+                <td><%= jo.service%></td>
+                <td><%= jo.department%></td>
+                <td><%= jo.description%></td>
+                <td><%= jo.created_at%></td>
+                <td><%= jo.classification%></td>
+                <td><%= jo.engineering_unit%></td>
+                <td><%= jo.status%></td>
+                <td><%= jo.remarks%></td>
+                <td><%= jo.remarks_as_of%></td>
+                <td id="button"><button><%= link_to 'Update', edit_job_order_path(jo.job_order_number) %></button> <button><%= link_to 'Destroy', job_order_path(jo.job_order_number), method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
+                </tr>
+                <%end%>
+    </tbody>
+</table>
+</div>

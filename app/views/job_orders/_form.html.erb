@@ -1,0 +1,35 @@
+<%= form_with(model: job_order) do |form| %>
+<% if job_order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(job_order.errors.count, "error") %> prohibited this book from being saved:</h2>
+
+      <ul>
+        <% job_order.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+    <div class ="field">
+    <%= form.label :service %>
+    <%= form.select(:service, options_for_select([["INSTITUTIONAL"],["HOSPITAL"],["ACADEMICS"],["RESEARCH"],["MISSION"],["GENERAL SERVICES"]])) %>
+    </div>
+
+    <div class ="field">
+    <%= form.label :department %>
+    <%= form.text_field :department %>
+    </div>
+
+    <div class ="field">
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+    </div>
+    
+    <p>Today is <%=@date_today %></p>
+
+    <div class="actions">
+    <%= form.submit %>
+    </div>
+<% end %>
