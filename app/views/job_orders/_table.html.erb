@@ -24,13 +24,13 @@
                 <td><%= jo.service%></td>
                 <td><%= jo.department%></td>
                 <td><%= jo.description%></td>
-                <td><%= jo.created_at%></td>
+                <td><%= jo.created_at.strftime("%a,%m %d %Y")%></td>
                 <td><%= jo.classification%></td>
                 <td><%= jo.engineering_unit%></td>
                 <td><%= jo.status%></td>
                 <td><%= jo.remarks%></td>
                 <td><%= jo.remarks_as_of%></td>
-                <td id="button"><button><%= link_to 'Update', edit_job_order_path(jo.job_order_number) %></button> <button><%= link_to 'Destroy', job_order_path(jo.job_order_number), method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
+                <td id="button"><button><%= link_to 'Update', edit_job_order_path(jo.job_order_number) %></button> <button><%= link_to 'Delete', job_order_path(jo.job_order_number), method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
                 </tr>
                 <%end%>
     </tbody>

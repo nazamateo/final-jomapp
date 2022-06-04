@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-
+<div class="edit_container">
     <div class ="field">
     <%= form.label :service %>
     <%= form.select(:service, options_for_select([["INSTITUTIONAL"],["HOSPITAL"],["ACADEMICS"],["RESEARCH"],["MISSION"],["GENERAL SERVICES"]])) %>
@@ -31,5 +31,6 @@
 
     <div class="actions">
     <%= form.submit %>
+    </div>
     </div>
 <% end %>

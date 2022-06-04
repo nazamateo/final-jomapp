@@ -25,6 +25,7 @@
   height: 80%;
   border: solid 1px;
   overflow-y: auto;
+  border-radius: 8px;
 }
 
 #joborders_table {
@@ -41,6 +42,10 @@
 #button {
   display: flex;
   justify-content: space-between;
+}
+
+a {
+  text-decoration: none;
 }
 #joborders_table td,
 joborders_table th {
